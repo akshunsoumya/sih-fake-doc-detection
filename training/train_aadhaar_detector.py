@@ -18,7 +18,6 @@ from ultralytics import YOLO
 ROOT = Path(__file__).resolve().parents[1]
 
 DATA = ROOT / "datasets" / "aadhaar_entities" / "data.yaml"
-DATASET_DIR = DATA.parent
 RUNS = ROOT / "runs"
 
 
@@ -29,26 +28,37 @@ def main():
             "Prepare the Aadhaar dataset first."
         )
 
-    # Keep data.yaml portable.
-    # Resolve its dataset path from this repository at runtime.
+    # Read the portable YAML.
     data_cfg = yaml.safe_load(DATA.read_text())
-    data_cfg["path"] = str(DATASET_DIR)
 
-    model = YOLO("yolov8n.pt")
+    # Resolve the dataset path locally.
+    data_cfg["path"] = str(DATA.parent.resolve())
 
-    model.train(
-        data=data_cfg,
-        epochs=50,
-        imgsz=640,
-        batch=8,
-        workers=2,
-        patience=10,
-        project=str(RUNS),
-        name="aadhaar_fields",
-        exist_ok=True,
-        pretrained=True,
-        device="mps",
-    )
+    # Create a temporary local YAML for Ultralytics.
+    resolved_data = DATA.parent / "_data_local.yaml"
+    resolved_data.write_text(yaml.safe_dump(data_cfg, sort_keys=False))
+
+    try:
+        model = YOLO("yolov8n.pt")
+
+        model.train(
+            data=str(resolved_data),
+            epochs=50,
+            imgsz=640,
+            batch=8,
+            workers=2,
+            patience=10,
+            project=str(RUNS),
+            name="aadhaar_fields",
+            exist_ok=True,
+            pretrained=True,
+            device="mps",
+        )
+
+    finally:
+        # Never leave the machine-specific YAML in the repository.
+        if resolved_data.exists():
+            resolved_data.unlink()
 
     best = RUNS / "aadhaar_fields" / "weights" / "best.pt"
 
