@@ -248,3 +248,4 @@ models/**/*.onnx
 # Local Python virtual environment
 .venv/
 yolov8n.pt
+yolov8n.pt
