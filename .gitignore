@@ -247,3 +247,4 @@ models/**/*.onnx
 .DS_Store
 # Local Python virtual environment
 .venv/
+yolov8n.pt
