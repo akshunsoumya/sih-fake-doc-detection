@@ -216,3 +216,32 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Project runtime directories
+uploads/*
+outputs/*
+runs/*
+
+# Keep directory placeholders
+!uploads/.gitkeep
+!outputs/.gitkeep
+!runs/.gitkeep
+
+# Local datasets
+datasets/*
+
+# Keep dataset directory structure
+!datasets/
+!datasets/document_types/
+!datasets/aadhaar_entities/
+!datasets/pan_entities/
+!datasets/passport_entities/
+!datasets/forgery/
+
+# Local trained model artifacts
+models/**/*.pt
+models/**/*.pth
+models/**/*.onnx
+
+# macOS
+.DS_Store
+
