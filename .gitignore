@@ -227,7 +227,8 @@ runs/*
 !runs/.gitkeep
 
 # Local datasets
-datasets/*
+datasets/**
+
 
 # Keep dataset directory structure
 !datasets/
@@ -244,4 +245,5 @@ models/**/*.onnx
 
 # macOS
 .DS_Store
-
+# Local Python virtual environment
+.venv/
