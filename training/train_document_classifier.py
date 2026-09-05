@@ -50,7 +50,12 @@ torch.manual_seed(SEED)
 # Device
 # ============================================================
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if torch.backends.mps.is_available():
+    DEVICE = torch.device("mps")
+elif torch.cuda.is_available():
+    DEVICE = torch.device("cuda")
+else:
+    DEVICE = torch.device("cpu")
 
 print("=" * 60)
 print("Document Type Classifier")
