@@ -98,29 +98,86 @@ We chose classical computer vision and rule-based techniques (ELA, MRZ checksum 
 ## Repository Structure
 
 ```
+Repository Structure
+
 sih-fake-doc-detection/
-├── frontend/                  # Web UI (upload page, result dashboard)
-│   ├── src/
-│   ├── public/
-│   └── package.json
-├── backend/                   # FastAPI application and API routes
-│   ├── app/
-│   │   ├── main.py            # API entry point, orchestrates all modules
-│   │   └── common/            # Shared utilities (e.g., preprocessing)
-│   └── requirements.txt
-├── ml_modules/                 # OCR, MRZ, and tamper detection logic
-│   ├── ocr_module/
-│   ├── mrz_module/
-│   └── tamper_module/
-├── dataset/
-│   ├── genuine/                # Genuine/specimen sample document images
-│   └── fake/                   # Tampered/synthetic sample document images
-├── docs/                        # Documentation, architecture notes, API contract
-│   ├── architecture.png
-│   └── api_contract.md
-├── .gitignore
-├── README.md
-└── LICENSE
+│
+├── app/                                      # Main application package
+│   └── __init__.py
+│
+├── datasets/                                 # Datasets used for training and testing
+│   ├── aadhaar_entities/                     # Aadhaar field-detection dataset
+│   ├── document_types/                       # Aadhaar / PAN / Passport classification data
+│   ├── forgery/                              # Genuine and manipulated document samples
+│   ├── pan_entities/                         # PAN field-detection dataset
+│   └── passport_entities/                    # Passport field-detection dataset
+│
+├── demo/                                     # Demo material for SIH presentation
+│   ├── screenshots/                          # Demo screenshots
+│   └── video/                                # Demo video
+│
+├── docs/                                     # Project documentation
+│   └── screenshots/                          # Documentation screenshots
+│
+├── document_detection/                       # Document preprocessing and detection
+│   ├── __init__.py
+│   └── preprocess.py                         # Image preprocessing
+│
+├── documents/                                # Document-specific processing
+│   ├── __init__.py
+│   │
+│   ├── aadhaar/                              # Aadhaar-specific processing
+│   │   ├── __init__.py
+│   │   ├── detector.py                       # Aadhaar field detection
+│   │   ├── ocr.py                            # Aadhaar OCR processing
+│   │   ├── pipeline_test.py                  # Aadhaar pipeline tests
+│   │   ├── pipeline.py                       # Aadhaar processing pipeline
+│   │   ├── test_detector.py                  # Detector tests
+│   │   ├── test_ocr.py                       # OCR tests
+│   │   ├── validator_test.py                 # Validation tests
+│   │   └── validator.py                      # Aadhaar field validation
+│   │
+│   ├── pan/                                  # PAN-specific processing
+│   │   └── __init__.py
+│   │
+│   └── passport/                             # Passport-specific processing
+│       └── __init__.py
+│
+├── forgery_detection/                        # Document forgery analysis
+│   ├── __init__.py
+│   ├── copy_move_test.py                     # Copy-move detection tests
+│   ├── copy_move.py                          # Copy-move detection
+│   ├── ela_test.py                            # ELA tests
+│   └── ela.py                                 # Error Level Analysis
+│
+├── frontend/                                 # Web application interface
+│
+├── inference/                                # Running trained components on new documents
+│   └── __init__.py
+│
+├── models/                                   # Trained model files
+│   ├── aadhaar/                              # Aadhaar model
+│   ├── document_classifier/                  # Document-type classifier
+│   ├── forgery/                              # Forgery model/components
+│   ├── pan/                                  # PAN model
+│   └── passport/                             # Passport model
+│
+├── outputs/                                  # Generated predictions and analysis results
+│
+├── ppt/                                     # SIH presentation files
+│
+├── scripts/                                  # Dataset and utility scripts
+│   └── prepare_aadhaar_dataset.py            # Aadhaar dataset preparation
+│
+├── tests/                                    # Project-level tests
+│
+├── training/                                 # Model training scripts
+│   └── train_aadhaar_detector.py             # Train Aadhaar field detector
+│
+├── uploads/                                  # Temporarily uploaded documents
+│
+├── LICENSE                                   # Project license
+└── README.md                                 # Project documentation
 
 ```
 
