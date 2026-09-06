@@ -249,3 +249,5 @@ models/**/*.onnx
 .venv/
 yolov8n.pt
 yolov8n.pt
+# Generated ML training outputs
+models/**/*.png
