@@ -8,29 +8,28 @@ class CopyMoveDetector:
     """
     Copy-move forgery detector.
 
-    Detects regions that appear to have been copied and pasted
-    somewhere else within the same image.
+    A copy-move forgery happens when a region from an image
+    is copied and pasted somewhere else in the SAME image.
 
-    Accepts either:
-        1. an image file path
-        2. an OpenCV / NumPy image array
+    Accepts:
+        - image file path
+        - OpenCV / NumPy image
 
-    This is a supporting forensic signal, not proof of forgery.
+    This produces a forensic signal, not a final forgery decision.
     """
 
     def __init__(
         self,
-        min_matches: int = 10,
+        min_matches: int = 8,
         distance_ratio: float = 0.75,
+        min_spatial_distance: float = 40.0,
     ):
         self.min_matches = min_matches
         self.distance_ratio = distance_ratio
+        self.min_spatial_distance = min_spatial_distance
 
-        # SIFT is useful here because it finds local visual
-        # features that can be compared within the same image.
         self.sift = cv2.SIFT_create()
 
-        # FLANN is used to efficiently match SIFT descriptors.
         index_params = dict(
             algorithm=1,
             trees=5,
@@ -46,7 +45,7 @@ class CopyMoveDetector:
         )
 
     def _load_image(self, image):
-        """Load an image from either a path or NumPy array."""
+        """Accept either a file path or NumPy/OpenCV image."""
 
         if isinstance(image, (str, Path)):
             image = cv2.imread(str(image))
@@ -71,28 +70,15 @@ class CopyMoveDetector:
         )
 
     def detect(self, image):
-        """
-        Run copy-move detection.
-
-        Returns a dictionary containing:
-            - keypoints
-            - good_matches
-            - match_ratio
-            - copy_move_score
-            - suspicious
-            - status
-        """
+        """Run copy-move analysis."""
 
         image = self._load_image(image)
 
-        # Convert to grayscale because SIFT works on intensity
-        # information rather than color.
         gray = cv2.cvtColor(
             image,
             cv2.COLOR_BGR2GRAY,
         )
 
-        # Detect local features.
         keypoints, descriptors = self.sift.detectAndCompute(
             gray,
             None,
@@ -100,23 +86,23 @@ class CopyMoveDetector:
 
         if descriptors is None or len(keypoints) < 2:
             return {
-                "keypoints": 0,
-                "good_matches": 0,
+                "keypoints": len(keypoints),
+                "candidate_matches": 0,
+                "geometric_matches": 0,
                 "match_ratio": 0.0,
                 "copy_move_score": 0.0,
                 "suspicious": False,
                 "status": "insufficient_features",
             }
 
-        # Match every feature against other features in the
-        # same image.
+        # Compare every feature with features from the same image.
         matches = self.matcher.knnMatch(
             descriptors,
             descriptors,
             k=2,
         )
 
-        good_matches = []
+        candidate_matches = []
 
         for pair in matches:
             if len(pair) < 2:
@@ -124,40 +110,115 @@ class CopyMoveDetector:
 
             first, second = pair
 
-            # Avoid matching a feature with itself.
+            # Never match a feature with itself.
             if first.queryIdx == first.trainIdx:
                 continue
 
-            # Lowe's ratio test.
+            # Lowe ratio test.
             if first.distance < (
                 self.distance_ratio * second.distance
             ):
-                good_matches.append(first)
+                candidate_matches.append(first)
 
-        good_match_count = len(good_matches)
+        # ---------------------------------------------------------
+        # Remove matches that are spatially too close.
+        #
+        # A genuine copy-move should appear in two different
+        # locations in the same image.
+        # ---------------------------------------------------------
+
+        spatial_matches = []
+
+        for match in candidate_matches:
+            source = np.array(
+                keypoints[match.queryIdx].pt,
+                dtype=np.float32,
+            )
+
+            target = np.array(
+                keypoints[match.trainIdx].pt,
+                dtype=np.float32,
+            )
+
+            distance = float(
+                np.linalg.norm(source - target)
+            )
+
+            if distance >= self.min_spatial_distance:
+                spatial_matches.append(match)
+
+        # ---------------------------------------------------------
+        # Geometric consistency.
+        #
+        # If several matched points follow a similar transformation,
+        # they are stronger evidence of a copied region.
+        # ---------------------------------------------------------
+
+        geometric_matches = []
+
+        if len(spatial_matches) >= 4:
+            source_points = np.float32(
+                [
+                    keypoints[m.queryIdx].pt
+                    for m in spatial_matches
+                ]
+            ).reshape(-1, 1, 2)
+
+            target_points = np.float32(
+                [
+                    keypoints[m.trainIdx].pt
+                    for m in spatial_matches
+                ]
+            ).reshape(-1, 1, 2)
+
+            matrix, mask = cv2.findHomography(
+                source_points,
+                target_points,
+                cv2.RANSAC,
+                5.0,
+            )
+
+            if matrix is not None and mask is not None:
+                inlier_mask = mask.ravel().astype(bool)
+
+                geometric_matches = [
+                    match
+                    for match, is_inlier
+                    in zip(
+                        spatial_matches,
+                        inlier_mask,
+                    )
+                    if is_inlier
+                ]
+
+        geometric_count = len(geometric_matches)
 
         match_ratio = (
-            good_match_count / len(keypoints)
+            geometric_count / len(keypoints)
             if keypoints
             else 0.0
         )
 
-        # Normalize the number of matching features.
+        # ---------------------------------------------------------
+        # Simple MVP score.
         #
-        # This is intentionally a simple heuristic for the MVP.
+        # More geometrically consistent matches → higher score.
+        # This is NOT a probability of forgery.
+        # ---------------------------------------------------------
+
         normalized_matches = min(
-            good_match_count / 50.0,
+            geometric_count / 30.0,
             1.0,
         )
 
         normalized_ratio = min(
-            match_ratio / 0.10,
+            match_ratio / 0.05,
             1.0,
         )
 
         copy_move_score = (
-            0.6 * normalized_matches
-            + 0.4 * normalized_ratio
+            0.7 * normalized_matches
+            + 0.3 * normalized_ratio
         )
 
         copy_move_score = float(
@@ -171,12 +232,13 @@ class CopyMoveDetector:
         )
 
         suspicious = (
-            good_match_count >= self.min_matches
+            geometric_count >= self.min_matches
         )
 
         return {
             "keypoints": len(keypoints),
-            "good_matches": good_match_count,
+            "candidate_matches": len(candidate_matches),
+            "geometric_matches": geometric_count,
             "match_ratio": round(
                 match_ratio,
                 6,
@@ -195,7 +257,7 @@ def run_check(image):
     Compatibility helper.
 
     Accepts either:
-        - image file path
+        - file path
         - OpenCV / NumPy image
     """
 
