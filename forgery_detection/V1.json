@@ -1,0 +1,128 @@
+{
+  "request": {
+    "requestId": "VER-2026-000123",
+    "timestamp": "2026-09-07T12:30:45Z"
+  },
+
+  "document": {
+    "documentType": "aadhaar",
+    "classifierConfidence": 0.9896
+  },
+
+  "documentAnalysis": {
+    "status": "completed",
+    "fields": [
+      {
+        "field": "aadhaar_number",
+        "confidence": 0.8805,
+        "bbox": [168.22, 432.83, 391.47, 504.16]
+      },
+      {
+        "field": "name",
+        "confidence": 0.8768,
+        "bbox": [186.04, 160.67, 278.66, 197.63]
+      },
+      {
+        "field": "dob",
+        "confidence": 0.8325,
+        "bbox": [331.53, 209.63, 424.58, 247.30]
+      },
+      {
+        "field": "gender",
+        "confidence": 0.7998,
+        "bbox": [242.78, 242.36, 303.38, 275.21]
+      }
+    ]
+  },
+
+  "forensicAnalysis": {
+    "status": "completed",
+
+    "signals": {
+      "ela": {
+        "score": 0.2562,
+        "maxBlockError": 6.0,
+        "spikeRatio": 0.046057
+      },
+
+      "copyMove": {
+        "score": 0.0,
+        "keypoints": 2129,
+        "candidateMatches": 0,
+        "geometricMatches": 0,
+        "suspicious": false
+      },
+
+      "metadata": {
+        "hasMetadata": false,
+        "metadataCount": 0,
+        "format": "JPEG",
+        "width": 640,
+        "height": 640
+      },
+
+      "imageQuality": {
+        "width": 640,
+        "height": 640,
+        "brightness": 178.889,
+        "contrast": 66.4735,
+        "sharpness": 212.3707,
+        "qualityStatus": "good_sharpness"
+      },
+
+      "compression": {
+        "jpegToRawRatio": 0.049788
+      }
+    },
+
+    "combinedAnomalyScore": 0.1537
+  },
+
+  "forgeryAssessment": {
+    "status": "completed",
+
+    "predictedClass": "recompress",
+
+    "confidence": 0.6267,
+
+    "classProbabilities": {
+      "genuine": 0.0233,
+      "splice": 0.1267,
+      "retype": 0.0,
+      "recompress": 0.6267,
+      "copyMove": 0.16,
+      "doubleCompress": 0.0633
+    }
+  },
+
+  "decision": {
+    "status": "completed",
+
+    "overallStatus": "suspicious",
+
+    "decision": "manual_review",
+
+    "reviewRequired": true,
+
+    "predictedForgeryType": "recompress",
+
+    "modelConfidence": 0.6267,
+
+    "combinedAnomalyScore": 0.1537,
+
+    "validationSummary": {
+      "totalFields": 4,
+      "invalidFields": 0
+    },
+
+    "reasons": [
+      "Forgery classifier predicts recompress with moderate confidence."
+    ],
+
+    "recommendation": "Manual review recommended. Some forgery indicators were detected."
+  },
+
+  "status": "completed",
+
+  "error": null
+}
