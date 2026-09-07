@@ -16,7 +16,9 @@ class PassportMRZValidator:
         if "A" <= char <= "Z":
             return ord(char) - ord("A") + 10
 
-        raise ValueError(f"Invalid MRZ character: {char}")
+        raise ValueError(
+            f"Invalid MRZ character: {char}"
+        )
 
     def _check_digit(self, value: str) -> int:
         total = 0
@@ -29,7 +31,17 @@ class PassportMRZValidator:
 
         return total % 10
 
-    def validate(self, mrz_lines: list[str]) -> dict:
+    def validate_candidate(
+        self,
+        mrz_lines: list[str],
+    ) -> dict:
+        """
+        Validate one candidate pair of TD3 MRZ lines.
+
+        Returns detailed check results without treating OCR
+        uncertainty as forgery.
+        """
+
         if len(mrz_lines) != 2:
             return {
                 "status": "incomplete",
@@ -40,7 +52,10 @@ class PassportMRZValidator:
         line1 = mrz_lines[0].strip().upper()
         line2 = mrz_lines[1].strip().upper()
 
-        lengths = [len(line1), len(line2)]
+        lengths = [
+            len(line1),
+            len(line2),
+        ]
 
         if lengths != [44, 44]:
             return {
@@ -49,58 +64,93 @@ class PassportMRZValidator:
                 "error": "MRZ OCR output is incomplete.",
                 "line_lengths": lengths,
                 "expected_lengths": [44, 44],
-                "mrz_lines": [line1, line2],
+                "mrz_lines": [
+                    line1,
+                    line2,
+                ],
             }
 
-        if not re.fullmatch(r"[A-Z0-9<]{44}", line1):
+        if not re.fullmatch(
+            r"[A-Z0-9<]{44}",
+            line1,
+        ):
             return {
                 "status": "invalid",
                 "valid": False,
                 "error": "Invalid characters in MRZ line 1.",
+                "mrz_lines": [
+                    line1,
+                    line2,
+                ],
             }
 
-        if not re.fullmatch(r"[A-Z0-9<]{44}", line2):
+        if not re.fullmatch(
+            r"[A-Z0-9<]{44}",
+            line2,
+        ):
             return {
                 "status": "invalid",
                 "valid": False,
                 "error": "Invalid characters in MRZ line 2.",
+                "mrz_lines": [
+                    line1,
+                    line2,
+                ],
             }
 
+        # ---------------------------------------------------------
+        # TD3 MRZ structure
+        # ---------------------------------------------------------
+
         document_code = line1[:2]
+
         names = line1[5:44]
 
         passport_number = line2[0:9]
+
         passport_number_check = line2[9]
 
         nationality = line2[10:13]
 
         date_of_birth = line2[13:19]
+
         date_of_birth_check = line2[19]
 
         sex = line2[20]
 
         expiry_date = line2[21:27]
+
         expiry_date_check = line2[27]
 
         optional_data = line2[28:42]
 
         final_check_digit = line2[43]
 
+        # ---------------------------------------------------------
+        # Individual check digits
+        # ---------------------------------------------------------
+
         passport_number_valid = (
             passport_number_check.isdigit()
-            and self._check_digit(passport_number)
+            and self._check_digit(
+                passport_number
+            )
             == int(passport_number_check)
         )
 
         dob_valid = (
             date_of_birth_check.isdigit()
-            and self._check_digit(date_of_birth)
+            and self._check_digit(
+                date_of_birth
+            )
             == int(date_of_birth_check)
         )
 
         expiry_valid = (
             expiry_date_check.isdigit()
-            and self._check_digit(expiry_date)
+            and self._check_digit(
+                expiry_date
+            )
             == int(expiry_date_check)
         )
 
@@ -116,7 +166,9 @@ class PassportMRZValidator:
 
         final_valid = (
             final_check_digit.isdigit()
-            and self._check_digit(final_data)
+            and self._check_digit(
+                final_data
+            )
             == int(final_check_digit)
         )
 
@@ -128,7 +180,11 @@ class PassportMRZValidator:
         )
 
         return {
-            "status": "valid" if overall_valid else "invalid",
+            "status": (
+                "valid"
+                if overall_valid
+                else "invalid"
+            ),
             "valid": overall_valid,
             "document_code": document_code,
             "nationality": nationality,
@@ -143,5 +199,18 @@ class PassportMRZValidator:
                 "expiry_date": expiry_valid,
                 "final": final_valid,
             },
-            "mrz_lines": [line1, line2],
+            "mrz_lines": [
+                line1,
+                line2,
+            ],
         }
+
+    def validate(
+        self,
+        mrz_lines: list[str],
+    ) -> dict:
+        """Public MRZ validation method."""
+
+        return self.validate_candidate(
+            mrz_lines
+        )
