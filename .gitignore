@@ -251,3 +251,18 @@ yolov8n.pt
 yolov8n.pt
 # Generated ML training outputs
 models/**/*.png
+# Frontend dependencies
+frontend/node_modules/
+
+# Frontend build output
+frontend/dist/
+
+# Frontend environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# macOS
+.DS_Store
