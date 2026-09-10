@@ -1,0 +1,4036 @@
+/* =========================================================
+   DOCVERIFY — RESULTS PAGE
+   ========================================================= */
+
+.results-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+
+/* =========================================================
+   GLOBAL CONTAINER
+========================================================= */
+
+.results-container {
+  width: min(1440px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.results-header {
+  height: 68px;
+
+  background: rgba(255,255,255,0.96);
+
+  border-bottom: 1px solid #e5e9f0;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 50;
+}
+
+.results-header-inner {
+  width: min(1440px, calc(100% - 64px));
+
+  height: 100%;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 60px;
+}
+
+
+/* BRAND */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  color: #172033;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand b {
+  color: #2563eb;
+}
+
+.brand-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #111827;
+
+  color: white;
+
+  box-shadow:
+    0 5px 14px rgba(15,23,42,.15);
+}
+
+
+/* NAV */
+
+.results-nav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 40px;
+
+  flex: 1;
+}
+
+.results-nav a {
+  color: #334155;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: color .2s ease;
+}
+
+.results-nav a:hover {
+  color: #2563eb;
+}
+
+
+/* HEADER ACTIONS */
+
+.header-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.analysis-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: #ecfdf5;
+
+  color: #15803d;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.analysis-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #16a34a;
+}
+
+.analyze-again {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px rgba(37,99,235,.18);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.results-intro {
+  background: #f8f9ff;
+
+  border-bottom: 1px solid #e8ebf2;
+
+  padding: 25px 0 27px;
+}
+
+.back-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 20px;
+
+  color: #2563eb;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.intro-row {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.intro-eyebrow {
+  color: #2563eb;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  margin-bottom: 7px;
+}
+
+.intro-row h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 36px;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.2px;
+}
+
+.intro-row p {
+  margin: 8px 0 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+/* META */
+
+.intro-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.intro-meta > div {
+  padding-left: 20px;
+
+  border-left: 1px solid #dfe4ec;
+}
+
+.intro-meta span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.intro-meta strong {
+  color: #172033;
+
+  font-size: 10px;
+}
+
+.outline-button {
+  height: 38px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  border: 1px solid #dbe1ea;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: #334155;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.outline-button:hover {
+  border-color: #b8c3d2;
+
+  background: #fbfcfe;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.results-main {
+  padding: 22px 0 50px;
+}
+
+.results-layout {
+  display: grid;
+
+  grid-template-columns: 335px minmax(0, 1fr);
+
+  gap: 18px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT DOCUMENT PANEL
+========================================================= */
+
+.document-panel {
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      150deg,
+      #4b4ca9 0%,
+      #353b92 55%,
+      #30357e 100%
+    );
+
+  color: white;
+
+  box-shadow:
+    0 14px 35px rgba(48,53,126,.18);
+
+  position: sticky;
+  top: 90px;
+}
+
+.document-panel-title {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.document-panel-title button {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  background: rgba(255,255,255,.12);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* DOCUMENT PREVIEW */
+
+.document-preview {
+  height: 240px;
+
+  padding: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(15,23,42,.23);
+}
+
+.document-preview img {
+  max-width: 100%;
+  max-height: 210px;
+
+  object-fit: contain;
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 9px 25px rgba(0,0,0,.25);
+}
+
+.document-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255,255,255,.65);
+
+  text-align: center;
+}
+
+.document-placeholder svg {
+  margin-bottom: 10px;
+}
+
+.document-placeholder span {
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.document-placeholder small {
+  margin-top: 5px;
+
+  font-size: 8px;
+}
+
+
+/* DOCUMENT NAME */
+
+.document-name {
+  padding: 17px 0 15px;
+
+  text-align: center;
+}
+
+.document-name h2 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+
+  letter-spacing: -.3px;
+}
+
+.document-name span {
+  display: inline-block;
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background: #22c55e;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.document-divider {
+  height: 1px;
+
+  background: rgba(255,255,255,.16);
+
+  margin-bottom: 17px;
+}
+
+
+/* DETAILS */
+
+.details-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 14px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.detail-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 7px 0;
+}
+
+.detail-row > span {
+  color: rgba(255,255,255,.62);
+
+  font-size: 9px;
+}
+
+.detail-row > strong {
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  text-align: right;
+
+  max-width: 170px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.detail-complete {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.detail-complete span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #4ade80;
+}
+
+
+/* FULL IMAGE */
+
+.full-image-button {
+  width: 100%;
+
+  height: 39px;
+
+  margin-top: 15px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  border-radius: 8px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.full-image-button:hover {
+  background: rgba(255,255,255,.14);
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.analysis-panel {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   VERDICT
+========================================================= */
+
+.verdict {
+  min-height: 88px;
+
+  padding: 15px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border-radius: 13px;
+
+  border: 1px solid;
+}
+
+.verdict-danger {
+  background: linear-gradient(
+    100deg,
+    #fff0f1,
+    #fff7f7
+  );
+
+  border-color: #fecaca;
+}
+
+.verdict-safe {
+  background: #f0fdf4;
+
+  border-color: #bbf7d0;
+}
+
+.verdict-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+.verdict-danger .verdict-icon {
+  background: #ef4444;
+
+  color: white;
+}
+
+.verdict-safe .verdict-icon {
+  background: #22c55e;
+
+  color: white;
+}
+
+.verdict-text {
+  flex: 1;
+}
+
+.verdict-text > span {
+  color: #94a3b8;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: .8px;
+}
+
+.verdict-text h2 {
+  margin: 4px 0;
+
+  color: #dc2626;
+
+  font-size: 19px;
+
+  letter-spacing: -.3px;
+}
+
+.verdict-safe .verdict-text h2 {
+  color: #15803d;
+}
+
+.verdict-text p {
+  margin: 0;
+
+  color: #475569;
+
+  font-size: 9px;
+}
+
+.verdict-stat {
+  min-width: 105px;
+
+  padding-left: 18px;
+
+  border-left: 1px solid #e5d9dc;
+}
+
+.verdict-stat span {
+  display: block;
+
+  color: #94a3b8;
+
+  font-size: 8px;
+}
+
+.verdict-stat strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #dc2626;
+
+  font-size: 21px;
+}
+
+.verdict-stat .dark-score {
+  color: #172033;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.analysis-tabs {
+  margin-top: 14px;
+
+  min-height: 55px;
+
+  padding: 0 8px;
+
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 2px;
+
+  background: white;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 12px 12px 0 0;
+}
+
+.analysis-tabs div {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #64748b;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  border-bottom: 2px solid transparent;
+
+  white-space: nowrap;
+}
+
+.analysis-tabs .active {
+  color: #2563eb;
+
+  border-bottom-color: #2563eb;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-cards {
+  margin-top: 10px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.summary-card {
+  min-height: 91px;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 10px;
+
+  background: white;
+}
+
+.summary-icon {
+  width: 41px;
+  height: 41px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+.summary-icon.blue {
+  background: #e7f0ff;
+  color: #2563eb;
+}
+
+.summary-icon.red {
+  background: #fee8ea;
+  color: #dc2626;
+}
+
+.summary-icon.orange {
+  background: #fff2dc;
+  color: #ea580c;
+}
+
+.summary-icon.green {
+  background: #e3f8ef;
+  color: #16a34a;
+}
+
+.summary-card > div:last-child {
+  min-width: 0;
+}
+
+.summary-card span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 8px;
+}
+
+.summary-card strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #172033;
+
+  font-size: 15px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.summary-card small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   ANALYSIS GRID
+========================================================= */
+
+.analysis-grid {
+  margin-top: 10px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
+.dashboard-card {
+  min-width: 0;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 11px;
+
+  background: white;
+
+  overflow: hidden;
+}
+
+.dashboard-card-header {
+  min-height: 49px;
+
+  padding: 0 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.dashboard-card-header > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.dashboard-card-header svg {
+  color: #172033;
+}
+
+.dashboard-card-header h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 11px;
+}
+
+.card-badge {
+  padding: 5px 7px;
+
+  border-radius: 6px;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+.card-badge.blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.card-badge.green {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.card-badge.red {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   DATA TABLE
+========================================================= */
+
+.data-table {
+  padding: 9px 11px 0;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr 1fr .8fr .65fr;
+
+  align-items: center;
+}
+
+.table-head {
+  padding: 7px 8px;
+
+  background: #f6f8fb;
+
+  color: #64748b;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+.table-row {
+  min-height: 37px;
+
+  padding: 0 8px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  color: #475569;
+
+  font-size: 8px;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row strong {
+  color: #172033;
+
+  font-size: 8px;
+}
+
+.table-row > span:last-child {
+  text-align: right;
+}
+
+
+/* VALIDATION */
+
+.valid-badge,
+.invalid-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 4px 6px;
+
+  border-radius: 999px;
+
+  font-style: normal;
+
+  font-size: 7px;
+}
+
+.valid-badge {
+  background: #e9f9f0;
+  color: #15803d;
+}
+
+.invalid-badge {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+
+/* NOTE */
+
+.card-note {
+  margin: 9px 11px 11px;
+
+  padding: 8px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 6px;
+
+  border-radius: 7px;
+
+  background: #f6faff;
+
+  color: #64748b;
+
+  font-size: 7px;
+
+  line-height: 1.5;
+}
+
+.card-note svg {
+  flex-shrink: 0;
+
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   FORENSIC TABLE
+========================================================= */
+
+.forensic-table {
+  padding: 9px 11px 11px;
+}
+
+.forensic-head,
+.forensic-row {
+  display: grid;
+
+  grid-template-columns:
+    .8fr .7fr 1.3fr;
+
+  align-items: center;
+}
+
+.forensic-head {
+  min-height: 29px;
+
+  padding: 0 8px;
+
+  background: #f6f8fb;
+
+  color: #64748b;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+.forensic-row {
+  min-height: 37px;
+
+  padding: 0 8px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.forensic-row strong {
+  color: #172033;
+
+  font-size: 8px;
+}
+
+.forensic-row span {
+  color: #172033;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.forensic-row small {
+  color: #64748b;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   CLASSIFICATION
+========================================================= */
+
+.classification-list {
+  padding: 11px 13px 13px;
+}
+
+.classification-row {
+  min-height: 29px;
+
+  display: grid;
+
+  grid-template-columns:
+    100px 1fr 49px;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.classification-name {
+  color: #334155;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.classification-name small {
+  display: block;
+
+  width: fit-content;
+
+  margin-top: 2px;
+
+  padding: 2px 4px;
+
+  border-radius: 3px;
+
+  background: #fee2e2;
+
+  color: #dc2626;
+
+  font-size: 5px;
+
+  font-weight: 800;
+}
+
+.classification-bar {
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e8ecf2;
+}
+
+.classification-bar span {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #94a3b8;
+}
+
+.classification-row.selected
+.classification-bar span {
+  background: #ef4444;
+}
+
+.classification-row strong {
+  color: #334155;
+
+  font-size: 8px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   TECHNICAL DETAILS
+========================================================= */
+
+.technical-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+}
+
+.technical-item {
+  min-height: 58px;
+
+  padding: 10px 12px;
+
+  border-right: 1px solid #edf0f4;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.technical-item:nth-child(3n) {
+  border-right: none;
+}
+
+.technical-item span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 7px;
+}
+
+.technical-item strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #172033;
+
+  font-size: 9px;
+}
+
+
+/* DISCLAIMER */
+
+.ai-disclaimer {
+  margin: 10px;
+
+  padding: 9px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 7px;
+
+  border: 1px solid #bfd7ff;
+
+  border-radius: 7px;
+
+  background: #f2f7ff;
+
+  color: #4169a8;
+
+  font-size: 7px;
+
+  line-height: 1.5;
+}
+
+.ai-disclaimer svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   XAI
+========================================================= */
+
+.xai-panel {
+  margin-top: 10px;
+
+  padding: 17px;
+
+  border: 1px solid #dfe5ef;
+
+  border-radius: 11px;
+
+  background: white;
+}
+
+.xai-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.xai-header > div span {
+  color: #2563eb;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: .9px;
+}
+
+.xai-header h3 {
+  margin: 4px 0 0;
+
+  color: #172033;
+
+  font-size: 13px;
+}
+
+.xai-header > svg {
+  color: #7c3aed;
+}
+
+
+/* XAI ITEMS */
+
+.xai-items {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+
+  margin-top: 13px;
+}
+
+.xai-item {
+  padding: 12px;
+
+  display: flex;
+
+  gap: 9px;
+
+  border: 1px solid #e7ebf1;
+
+  border-radius: 8px;
+
+  background: #fbfcfe;
+}
+
+.xai-number {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 7px;
+
+  font-weight: 800;
+}
+
+.xai-item span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+.xai-item strong {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #172033;
+
+  font-size: 9px;
+}
+
+.xai-item p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 7px;
+
+  line-height: 1.5;
+}
+
+
+/* BACKEND PLACEHOLDER */
+
+.xai-backend-placeholder {
+  margin-top: 12px;
+
+  padding: 11px 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px dashed #c4b5fd;
+
+  border-radius: 8px;
+
+  background: #faf9ff;
+
+  color: #7c3aed;
+}
+
+.xai-backend-placeholder > div {
+  flex: 1;
+}
+
+.xai-backend-placeholder strong {
+  display: block;
+
+  color: #4c3a83;
+
+  font-size: 8px;
+}
+
+.xai-backend-placeholder span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #7c6da8;
+
+  font-size: 7px;
+
+  line-height: 1.5;
+}
+
+.xai-backend-placeholder small {
+  padding: 4px 6px;
+
+  border-radius: 4px;
+
+  background: #ede9fe;
+
+  color: #7c3aed;
+
+  font-size: 5px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+.review-banner {
+  margin-top: 10px;
+
+  padding: 13px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  border: 1px solid #f4d58a;
+
+  border-radius: 10px;
+
+  background: #fffaed;
+}
+
+.review-banner-icon {
+  width: 39px;
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fbbf24;
+
+  color: white;
+}
+
+.review-banner span {
+  color: #a16207;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: .8px;
+}
+
+.review-banner h3 {
+  margin: 3px 0;
+
+  color: #713f12;
+
+  font-size: 11px;
+}
+
+.review-banner p {
+  margin: 0;
+
+  color: #92400e;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.bottom-actions {
+  margin-top: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.completion {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #15803d;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+.bottom-buttons {
+  display: flex;
+
+  gap: 7px;
+}
+
+.secondary-action,
+.primary-action {
+  height: 34px;
+
+  padding: 0 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  border-radius: 7px;
+
+  text-decoration: none;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.secondary-action {
+  border: 1px solid #dbe1e8;
+
+  background: white;
+
+  color: #475569;
+}
+
+.primary-action {
+  background: #2563eb;
+
+  color: white;
+
+  border: 1px solid #2563eb;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .results-container,
+  .results-header-inner {
+    width: min(100% - 36px, 1100px);
+  }
+
+  .results-layout {
+    grid-template-columns: 290px 1fr;
+  }
+
+  .results-nav {
+    gap: 22px;
+  }
+
+  .intro-meta {
+    gap: 10px;
+  }
+
+  .intro-meta > div {
+    padding-left: 10px;
+  }
+
+  .analysis-tabs div {
+    font-size: 8px;
+  }
+
+}
+
+
+@media (max-width: 1000px) {
+
+  .results-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .document-panel {
+    position: relative;
+    top: 0;
+  }
+
+  .document-preview {
+    height: 300px;
+  }
+
+  .document-preview img {
+    max-height: 270px;
+  }
+
+  .xai-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .results-header {
+    height: auto;
+  }
+
+  .results-header-inner {
+    padding: 12px 0;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+  }
+
+  .results-nav {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .intro-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .intro-meta {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .results-container,
+  .results-header-inner {
+    width: calc(100% - 24px);
+  }
+
+  .results-nav {
+    gap: 15px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .results-nav a {
+    font-size: 11px;
+  }
+
+  .analysis-status {
+    display: none;
+  }
+
+  .intro-row h1 {
+    font-size: 29px;
+  }
+
+  .verdict {
+    flex-wrap: wrap;
+  }
+
+  .verdict-stat {
+    min-width: 100px;
+  }
+
+  .analysis-tabs {
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .analysis-tabs div {
+    min-width: 125px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .xai-items {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .bottom-buttons {
+    width: 100%;
+  }
+
+  .secondary-action,
+  .primary-action {
+    flex: 1;
+
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .analyze-again {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .intro-meta > div {
+    width: 100%;
+
+    border-left: none;
+
+    padding-left: 0;
+  }
+
+  .intro-meta button {
+    flex: 1;
+  }
+
+  .document-panel {
+    padding: 15px;
+  }
+
+  .technical-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .technical-item:nth-child(3n) {
+    border-right: 1px solid #edf0f4;
+  }
+
+  .technical-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .table-head,
+  .table-row {
+    grid-template-columns:
+      1.2fr 1fr .8fr;
+  }
+
+  .table-head span:last-child,
+  .table-row span:last-child {
+    display: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   RESULTS PAGE - COMPACT / SOPHISTICATED LAYOUT
+   Add this at the VERY BOTTOM of Results.css
+========================================================= */
+
+
+/* =========================================================
+   SECTION CONTAINER
+========================================================= */
+
+.result-section {
+  margin-top: 12px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-heading {
+  min-height: auto;
+
+  height: auto;
+
+  padding: 18px 20px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e8edf3;
+}
+
+
+/* left side */
+
+.section-heading > div:first-child {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.section-heading > div:first-child span {
+  margin-bottom: 4px;
+
+  color: #2563eb;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+}
+
+
+.section-heading h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 17px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.3px;
+}
+
+
+/* =========================================================
+   EXTRACTED INFORMATION
+========================================================= */
+
+.extracted-grid {
+  padding: 16px 18px 12px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.extracted-result {
+  min-height: 125px;
+
+  padding: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow: 0 2px 7px rgba(15, 23, 42, 0.025);
+}
+
+
+.extracted-result-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+/* bigger icon */
+
+.extracted-field-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+
+  flex-shrink: 0;
+}
+
+
+.extracted-result-top > div:nth-child(2) span {
+  font-size: 9px;
+
+  color: #64748b;
+
+  font-weight: 600;
+}
+
+
+.extracted-result-top > div:nth-child(2) strong {
+  margin-top: 5px;
+
+  font-size: 15px;
+
+  color: #172033;
+
+  letter-spacing: 0.1px;
+}
+
+
+/* validation badge */
+
+.validation-valid,
+.validation-invalid {
+  margin-left: auto;
+
+  padding: 6px 9px;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   EXTRACTION CONFIDENCE
+========================================================= */
+
+.extracted-confidence {
+  margin-top: 14px;
+}
+
+
+.extracted-confidence > div:first-child {
+  margin-bottom: 6px;
+}
+
+
+.extracted-confidence span {
+  font-size: 8px;
+
+  color: #64748b;
+}
+
+
+.extracted-confidence strong {
+  font-size: 9px;
+
+  color: #334155;
+}
+
+
+.confidence-track {
+  height: 6px;
+
+  background: #e8edf2;
+}
+
+
+.confidence-track span {
+  background: linear-gradient(
+    90deg,
+    #22c55e,
+    #16a34a
+  );
+}
+
+
+/* =========================================================
+   VALIDATION NOTE
+========================================================= */
+
+.validation-note {
+  margin: 0 18px 16px;
+
+  min-height: 40px;
+
+  padding: 10px 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-radius: 8px;
+
+  background: #f8fbff;
+}
+
+
+.validation-note span {
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORENSIC ANALYSIS
+========================================================= */
+
+.forensic-dashboard {
+  padding: 16px 18px 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 11px;
+}
+
+
+.forensic-metric {
+  min-height: 105px;
+
+  padding: 15px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  border-radius: 10px;
+
+  background: #fbfcfe;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.forensic-metric:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 15px rgba(15, 23, 42, 0.06);
+}
+
+
+/* bigger forensic icon */
+
+.forensic-metric-icon {
+  width: 39px;
+  height: 39px;
+
+  border-radius: 10px;
+}
+
+
+.forensic-metric span {
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+.forensic-metric strong {
+  margin-top: 5px;
+
+  font-size: 17px;
+
+  color: #172033;
+}
+
+
+.forensic-metric small {
+  margin-top: 5px;
+
+  font-size: 8px;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TECHNICAL METRICS
+========================================================= */
+
+.technical-grid {
+  margin: 0 18px 16px;
+
+  padding: 14px 0 2px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  border-top: 1px solid #e8edf3;
+}
+
+
+.technical-grid > div {
+  min-height: 45px;
+
+  padding: 0 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border-right: 1px solid #e8edf3;
+}
+
+
+.technical-grid > div:first-child {
+  padding-left: 4px;
+}
+
+
+.technical-grid > div:last-child {
+  border-right: none;
+}
+
+
+.technical-grid span {
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+}
+
+
+.technical-grid strong {
+  color: #334155;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.fields-detected,
+.forensic-status,
+.section-heading-status {
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SMALL SCREEN
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .forensic-dashboard {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .technical-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    row-gap: 12px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .extracted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forensic-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .section-heading {
+    padding: 15px;
+  }
+
+  .fields-detected,
+  .forensic-status,
+  .section-heading-status {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .technical-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-grid > div {
+    border-right: none;
+
+    border-bottom: 1px solid #edf0f4;
+
+    padding: 8px 0;
+  }
+
+}
+
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import {
+  ArrowLeft,
+  Download,
+  Share2,
+  RefreshCw,
+  CheckCircle2,
+  AlertTriangle,
+  ShieldCheck,
+  ShieldAlert,
+  FileText,
+  Fingerprint,
+  Activity,
+  Image as ImageIcon,
+  ScanLine,
+  BarChart3,
+  BrainCircuit,
+  Info,
+  Maximize2,
+  Database,
+  Clock3,
+  FileImage,
+} from "lucide-react";
+
+import "./Results.css";
+
+
+/* =========================================================
+   TEMPORARY FRONTEND DATA
+   =========================================================
+
+   BACKEND INTEGRATION:
+   Remove this object when the backend API is connected.
+
+   Expected flow:
+
+   Detect Page
+        ↓
+   POST /api/analyze
+        ↓
+   Node / ML Backend
+        ↓
+   JSON response
+        ↓
+   navigate("/results", { state: { result: response } })
+
+========================================================= */
+
+const mockResult = {
+
+  request: {
+    requestId: "VER-2026-000123",
+    timestamp: "2026-09-07T12:30:45Z",
+    fileName: "aadhaar.jpg",
+    fileSize: "245 KB",
+  },
+
+  document: {
+    documentType: "Aadhaar Card",
+    classifierConfidence: 0.9896,
+  },
+
+  documentAnalysis: {
+
+    fields: [
+
+      {
+        field: "aadhaar_number",
+        value: "REDACTED",
+        confidence: 0.88,
+
+        validation: {
+          valid: true,
+        },
+      },
+
+      {
+        field: "name",
+        value: "REDACTED",
+        confidence: 0.88,
+
+        validation: {
+          valid: true,
+        },
+      },
+
+    ],
+  },
+
+  forensicAnalysis: {
+
+    combinedAnomalyScore: 0.1537,
+
+    signals: {
+
+      ela: {
+        score: 0.2562,
+        maxBlockError: 6,
+      },
+
+      copyMove: {
+        score: 0.0000,
+        geometricMatches: 0,
+        keypoints: 2129,
+      },
+
+      compression: {
+        jpegToRawRatio: 0.0498,
+      },
+
+      imageQuality: {
+        width: 640,
+        height: 640,
+        brightness: 178.89,
+        contrast: 66.47,
+        sharpness: 212.37,
+        qualityStatus: "Good",
+      },
+
+      metadata: {
+        hasMetadata: false,
+      },
+
+    },
+  },
+
+  forgeryAssessment: {
+
+    predictedClass: "Recompress",
+
+    confidence: 0.6267,
+
+    classProbabilities: {
+
+      Recompress: 0.6267,
+      "Copy-Move": 0.1600,
+      Splice: 0.1267,
+      "Double Compress": 0.0633,
+      Genuine: 0.0233,
+      Retype: 0.0000,
+
+    },
+
+  },
+
+};
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const percent = (value) =>
+  `${(value * 100).toFixed(2)}%`;
+
+
+const formatDate = (timestamp) => {
+
+  if (!timestamp) return "—";
+
+  return new Date(timestamp).toLocaleString(
+    "en-IN",
+    {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }
+  );
+};
+
+
+const formatFieldName = (field) => {
+
+  const names = {
+
+    aadhaar_number: "Aadhaar Number",
+
+    name: "Name",
+
+  };
+
+  return names[field] || field;
+
+};
+
+
+/* =========================================================
+   RESULTS COMPONENT
+========================================================= */
+
+export default function Results() {
+
+  const location = useLocation();
+
+  const [result, setResult] = useState(mockResult);
+
+  const [previewUrl, setPreviewUrl] = useState(null);
+
+
+  /* =======================================================
+     BACKEND INTEGRATION #1
+     =======================================================
+
+     When Detect.jsx sends the user to Results:
+
+     navigate("/results", {
+       state: {
+         result: apiResponse,
+         file: selectedFile
+       }
+     });
+
+  ======================================================= */
+
+  useEffect(() => {
+
+    if (location.state?.result) {
+
+      setResult(location.state.result);
+
+    }
+
+
+    /* =====================================================
+       FRONTEND IMAGE PREVIEW
+
+       This currently displays the file selected by the user.
+
+       BACKEND OPTION:
+
+       Replace this with:
+
+       result.document.imageUrl
+
+       when the backend provides a stored image URL.
+    ===================================================== */
+
+    if (location.state?.file) {
+
+      const url = URL.createObjectURL(
+        location.state.file
+      );
+
+      setPreviewUrl(url);
+
+      return () => {
+        URL.revokeObjectURL(url);
+      };
+
+    }
+
+  }, [location.state]);
+
+
+  const {
+    request,
+    document,
+    documentAnalysis,
+    forensicAnalysis,
+    forgeryAssessment,
+  } = result;
+
+
+  const isSuspicious =
+    forgeryAssessment.predictedClass !== "Genuine";
+
+
+  /* =========================================================
+     BACKEND INTEGRATION #2
+     DOWNLOAD REPORT
+  ========================================================= */
+
+  const handleDownload = () => {
+
+    /*
+      BACKEND:
+
+      GET /api/report/:requestId
+
+      Example:
+
+      window.open(
+        `/api/report/${request.requestId}`,
+        "_blank"
+      );
+    */
+
+    alert(
+      "Report download will be connected to the backend."
+    );
+
+  };
+
+
+  /* =========================================================
+     BACKEND INTEGRATION #3
+     SHARE RESULT
+  ========================================================= */
+
+  const handleShare = async () => {
+
+    /*
+      BACKEND:
+
+      The backend can generate a public result URL.
+
+      Example:
+
+      const response = await fetch(
+        `/api/results/${request.requestId}/share`
+      );
+
+      const data = await response.json();
+
+      navigator.clipboard.writeText(data.url);
+    */
+
+    try {
+
+      await navigator.clipboard.writeText(
+        window.location.href
+      );
+
+      alert("Result link copied.");
+
+    } catch {
+
+      alert("Unable to copy result link.");
+
+    }
+
+  };
+
+
+  return (
+
+    <div className="results-page">
+
+
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
+      <header className="results-header">
+
+        <div className="results-header-inner">
+
+
+          <Link
+            to="/"
+            className="brand"
+          >
+
+            <div className="brand-icon">
+              <ShieldCheck size={23} />
+            </div>
+
+            <span>
+              <b>Doc</b>Verify
+            </span>
+
+          </Link>
+
+
+          <nav className="results-nav">
+
+            <Link to="/">
+              Home
+            </Link>
+
+            <Link to="/detect">
+              Detect Document
+            </Link>
+
+            <Link to="/history">
+              History
+            </Link>
+
+            <Link to="/about">
+              About
+            </Link>
+
+          </nav>
+
+
+          <div className="header-actions">
+
+            <span className="analysis-status">
+
+              <span />
+
+              Analysis Complete
+
+            </span>
+
+
+            <Link
+              to="/detect"
+              className="analyze-again"
+            >
+
+              <RefreshCw size={14} />
+
+              Analyze Another
+
+            </Link>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      {/* =====================================================
+          PAGE INTRO
+      ===================================================== */}
+
+      <section className="results-intro">
+
+        <div className="results-container">
+
+
+          <Link
+            to="/detect"
+            className="back-link"
+          >
+
+            <ArrowLeft size={15} />
+
+            Back to Detect
+
+          </Link>
+
+
+          <div className="intro-row">
+
+
+            <div>
+
+              <div className="intro-eyebrow">
+                DOCUMENT VERIFICATION
+              </div>
+
+              <h1>
+                Verification Result
+              </h1>
+
+              <p>
+                Detailed analysis and verification report
+                of the uploaded document.
+              </p>
+
+            </div>
+
+
+            <div className="intro-meta">
+
+              <div>
+
+                <span>
+                  Analysis ID
+                </span>
+
+                <strong>
+                  {request.requestId}
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  Date & Time
+                </span>
+
+                <strong>
+                  {formatDate(request.timestamp)}
+                </strong>
+
+              </div>
+
+
+              <button
+                onClick={handleDownload}
+                className="outline-button"
+              >
+
+                <Download size={15} />
+
+                Download Report
+
+              </button>
+
+
+              <button
+                onClick={handleShare}
+                className="outline-button"
+              >
+
+                <Share2 size={15} />
+
+                Share Result
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      {/* =====================================================
+          MAIN DASHBOARD
+      ===================================================== */}
+
+      <main className="results-main">
+
+        <div className="results-container">
+
+          <div className="results-layout">
+
+
+            {/* =================================================
+                LEFT DOCUMENT PANEL
+            ================================================= */}
+
+            <aside className="document-panel">
+
+
+              <div className="document-panel-title">
+
+                <span>
+                  Document Preview
+                </span>
+
+                <button
+                  title="View full image"
+                  onClick={() => {
+
+                    if (previewUrl) {
+                      window.open(
+                        previewUrl,
+                        "_blank"
+                      );
+                    }
+
+                  }}
+                >
+
+                  <Maximize2 size={15} />
+
+                </button>
+
+              </div>
+
+
+              <div className="document-preview">
+
+                {previewUrl ? (
+
+                  <img
+                    src={previewUrl}
+                    alt="Uploaded document"
+                  />
+
+                ) : (
+
+                  <div className="document-placeholder">
+
+                    <FileImage size={42} />
+
+                    <span>
+                      Document Preview
+                    </span>
+
+                    <small>
+                      Uploaded document will appear here
+                    </small>
+
+                  </div>
+
+                )}
+
+              </div>
+
+
+              <div className="document-name">
+
+                <h2>
+                  {document.documentType}
+                </h2>
+
+                <span>
+                  Detected with{" "}
+                  {percent(
+                    document.classifierConfidence
+                  )}
+                  {" "}confidence
+                </span>
+
+              </div>
+
+
+              <div className="document-divider" />
+
+
+              <div className="document-details">
+
+                <div className="details-heading">
+
+                  <FileText size={16} />
+
+                  Document Details
+
+                </div>
+
+
+                <Detail
+                  label="Document Type"
+                  value={document.documentType}
+                />
+
+                <Detail
+                  label="Analysis ID"
+                  value={request.requestId}
+                />
+
+                <Detail
+                  label="Date & Time"
+                  value={formatDate(
+                    request.timestamp
+                  )}
+                />
+
+                <Detail
+                  label="File Name"
+                  value={request.fileName}
+                />
+
+                <Detail
+                  label="File Size"
+                  value={request.fileSize}
+                />
+
+                <Detail
+                  label="Resolution"
+                  value={`${forensicAnalysis.signals.imageQuality.width} × ${forensicAnalysis.signals.imageQuality.height}`}
+                />
+
+                <div className="detail-row">
+
+                  <span>
+                    Status
+                  </span>
+
+                  <strong className="detail-complete">
+
+                    <span />
+
+                    Analysis Completed
+
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <button
+                className="full-image-button"
+                onClick={() => {
+
+                  if (previewUrl) {
+                    window.open(
+                      previewUrl,
+                      "_blank"
+                    );
+                  }
+
+                }}
+              >
+
+                <Maximize2 size={15} />
+
+                View Full Image
+
+              </button>
+
+
+            </aside>
+
+
+
+            {/* =================================================
+                RIGHT ANALYSIS PANEL
+            ================================================= */}
+
+            <section className="analysis-panel">
+
+
+              {/* ===============================================
+                  VERDICT
+              =============================================== */}
+
+              <div
+                className={`verdict ${
+                  isSuspicious
+                    ? "verdict-danger"
+                    : "verdict-safe"
+                }`}
+              >
+
+                <div className="verdict-icon">
+
+                  {isSuspicious ? (
+                    <ShieldAlert size={27} />
+                  ) : (
+                    <ShieldCheck size={27} />
+                  )}
+
+                </div>
+
+
+                <div className="verdict-text">
+
+                  <span>
+                    OVERALL ASSESSMENT
+                  </span>
+
+                  <h2>
+
+                    {isSuspicious
+                      ? "Potentially Forged / Anomalous"
+                      : "Document Appears Authentic"}
+
+                  </h2>
+
+                  <p>
+
+                    Highest model prediction:{" "}
+
+                    <strong>
+                      {forgeryAssessment.predictedClass}
+                    </strong>
+
+                  </p>
+
+                </div>
+
+
+                <div className="verdict-stat">
+
+                  <span>
+                    Confidence
+                  </span>
+
+                  <strong>
+                    {percent(
+                      forgeryAssessment.confidence
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div className="verdict-stat">
+
+                  <span>
+                    Anomaly Score
+                  </span>
+
+                  <strong className="dark-score">
+                    {forensicAnalysis.combinedAnomalyScore.toFixed(4)}
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+
+              {/* ===============================================
+                  TABBED-STYLE ANALYSIS HEADER
+              =============================================== */}
+
+              <div className="analysis-tabs">
+
+                <div className="active">
+                  <FileText size={16} />
+                  Overview
+                </div>
+
+                <div>
+                  <ScanLine size={16} />
+                  Extracted Information
+                </div>
+
+                <div>
+                  <Fingerprint size={16} />
+                  Forensic Analysis
+                </div>
+
+                <div>
+                  <BarChart3 size={16} />
+                  Classification
+                </div>
+
+                <div>
+                  <BrainCircuit size={16} />
+                  AI Explanation
+                </div>
+
+              </div>
+
+
+
+              {/* ===============================================
+                  SUMMARY METRICS
+              =============================================== */}
+
+              <div className="summary-cards">
+
+
+                <SummaryCard
+                  icon={<FileText size={20} />}
+                  type="blue"
+                  label="Document Type"
+                  value={document.documentType}
+                  sub={`${percent(document.classifierConfidence)} confidence`}
+                />
+
+
+                <SummaryCard
+                  icon={<ShieldAlert size={20} />}
+                  type="red"
+                  label="Forgery Prediction"
+                  value={percent(
+                    forgeryAssessment.confidence
+                  )}
+                  sub={forgeryAssessment.predictedClass}
+                />
+
+
+                <SummaryCard
+                  icon={<Activity size={20} />}
+                  type="orange"
+                  label="Anomaly Score"
+                  value={forensicAnalysis.combinedAnomalyScore.toFixed(4)}
+                  sub="Combined forensic score"
+                />
+
+
+                <SummaryCard
+                  icon={<ImageIcon size={20} />}
+                  type="green"
+                  label="Image Quality"
+                  value={
+                    forensicAnalysis
+                      .signals
+                      .imageQuality
+                      .qualityStatus
+                  }
+                  sub={`Sharpness: ${forensicAnalysis.signals.imageQuality.sharpness}`}
+                />
+
+
+              </div>
+
+
+
+              {/* ===============================================
+                  LOWER TWO-COLUMN GRID
+              =============================================== */}
+
+              <div className="analysis-grid">
+
+
+                {/* =============================================
+                    EXTRACTED INFORMATION
+                ============================================= */}
+
+                <DashboardCard
+                  title="Extracted Information"
+                  icon={<FileText size={17} />}
+                  badge={`${documentAnalysis.fields.length} Fields Detected`}
+                  badgeType="blue"
+                >
+
+                  <div className="data-table">
+
+                    <div className="table-head">
+
+                      <span>
+                        Field
+                      </span>
+
+                      <span>
+                        Value
+                      </span>
+
+                      <span>
+                        Validation
+                      </span>
+
+                      <span>
+                        Confidence
+                      </span>
+
+                    </div>
+
+
+                    {documentAnalysis.fields.map(
+                      (field) => (
+
+                        <div
+                          className="table-row"
+                          key={field.field}
+                        >
+
+                          <strong>
+                            {formatFieldName(
+                              field.field
+                            )}
+                          </strong>
+
+                          <span>
+                            {field.value}
+                          </span>
+
+                          <span>
+
+                            {field.validation?.valid ? (
+
+                              <em className="valid-badge">
+
+                                <CheckCircle2 size={11} />
+
+                                Valid
+
+                              </em>
+
+                            ) : (
+
+                              <em className="invalid-badge">
+
+                                <AlertTriangle size={11} />
+
+                                Invalid
+
+                              </em>
+
+                            )}
+
+                          </span>
+
+                          <span>
+                            {percent(
+                              field.confidence
+                            )}
+                          </span>
+
+                        </div>
+
+                      )
+                    )}
+
+                  </div>
+
+
+                  <div className="card-note">
+
+                    <Info size={14} />
+
+                    Extracted fields are validated against
+                    available document format and validation
+                    rules.
+
+                  </div>
+
+                </DashboardCard>
+
+
+
+                {/* =============================================
+                    FORENSIC ANALYSIS
+                ============================================= */}
+
+                <DashboardCard
+                  title="Forensic Analysis"
+                  icon={<Fingerprint size={17} />}
+                  badge="Completed"
+                  badgeType="green"
+                >
+
+                  <div className="forensic-table">
+
+                    <div className="forensic-head">
+
+                      <span>
+                        Metric
+                      </span>
+
+                      <span>
+                        Value
+                      </span>
+
+                      <span>
+                        Details
+                      </span>
+
+                    </div>
+
+
+                    <ForensicRow
+                      metric="ELA"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .ela
+                          .score
+                          .toFixed(4)
+                      }
+                      detail={`Max block error: ${forensicAnalysis.signals.ela.maxBlockError}`}
+                    />
+
+
+                    <ForensicRow
+                      metric="Copy-Move"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .copyMove
+                          .score
+                          .toFixed(4)
+                      }
+                      detail={`Geometric matches: ${forensicAnalysis.signals.copyMove.geometricMatches}`}
+                    />
+
+
+                    <ForensicRow
+                      metric="Compression"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .compression
+                          .jpegToRawRatio
+                          .toFixed(4)
+                      }
+                      detail="JPEG / raw ratio"
+                    />
+
+
+                    <ForensicRow
+                      metric="Image Quality"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .imageQuality
+                          .qualityStatus
+                      }
+                      detail={`Sharpness: ${forensicAnalysis.signals.imageQuality.sharpness}`}
+                    />
+
+                  </div>
+
+                </DashboardCard>
+
+
+
+                {/* =============================================
+                    FORGERY CLASSIFICATION
+                ============================================= */}
+
+                <DashboardCard
+                  title="Forgery Classification"
+                  icon={<BarChart3 size={17} />}
+                  badge="Model Prediction"
+                  badgeType="red"
+                >
+
+                  <div className="classification-list">
+
+                    {Object.entries(
+                      forgeryAssessment.classProbabilities
+                    ).map(
+                      ([name, probability]) => {
+
+                        const selected =
+                          name ===
+                          forgeryAssessment.predictedClass;
+
+
+                        return (
+
+                          <div
+                            className={`classification-row ${
+                              selected
+                                ? "selected"
+                                : ""
+                            }`}
+                            key={name}
+                          >
+
+                            <span className="classification-name">
+
+                              {name}
+
+                              {selected && (
+                                <small>
+                                  PREDICTED
+                                </small>
+                              )}
+
+                            </span>
+
+
+                            <div className="classification-bar">
+
+                              <span
+                                style={{
+                                  width:
+                                    `${probability * 100}%`,
+                                }}
+                              />
+
+                            </div>
+
+
+                            <strong>
+                              {percent(
+                                probability
+                              )}
+                            </strong>
+
+                          </div>
+
+                        );
+
+                      }
+                    )}
+
+                  </div>
+
+                </DashboardCard>
+
+
+
+                {/* =============================================
+                    QUICK TECHNICAL DETAILS
+                ============================================= */}
+
+                <DashboardCard
+                  title="Quick Technical Details"
+                  icon={<Activity size={17} />}
+                >
+
+                  <div className="technical-details">
+
+                    <Technical
+                      label="Resolution"
+                      value={`${forensicAnalysis.signals.imageQuality.width} × ${forensicAnalysis.signals.imageQuality.height}`}
+                    />
+
+                    <Technical
+                      label="Brightness"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .imageQuality
+                          .brightness
+                      }
+                    />
+
+                    <Technical
+                      label="Contrast"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .imageQuality
+                          .contrast
+                      }
+                    />
+
+                    <Technical
+                      label="Keypoints"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .copyMove
+                          .keypoints
+                      }
+                    />
+
+                    <Technical
+                      label="Metadata"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .metadata
+                          .hasMetadata
+                          ? "Detected"
+                          : "Not Detected"
+                      }
+                    />
+
+                    <Technical
+                      label="Compression"
+                      value={
+                        forensicAnalysis
+                          .signals
+                          .compression
+                          .jpegToRawRatio
+                      }
+                    />
+
+                  </div>
+
+
+                  <div className="ai-disclaimer">
+
+                    <Info size={15} />
+
+                    <span>
+                      This analysis uses AI models and
+                      forensic techniques. Verify important
+                      documents manually before taking action.
+                    </span>
+
+                  </div>
+
+                </DashboardCard>
+
+              </div>
+
+
+              {/* ===============================================
+                  XAI SECTION
+              =============================================== */}
+
+              <div className="xai-panel">
+
+                <div className="xai-header">
+
+                  <div>
+
+                    <span>
+                      EXPLAINABLE AI
+                    </span>
+
+                    <h3>
+                      Why did the model reach this result?
+                    </h3>
+
+                  </div>
+
+                  <BrainCircuit size={21} />
+
+                </div>
+
+
+                <div className="xai-items">
+
+                  <XaiItem
+                    number="01"
+                    title="Primary Prediction"
+                    value={
+                      `${forgeryAssessment.predictedClass} — ${percent(forgeryAssessment.confidence)}`
+                    }
+                    text="This class received the highest probability from the forgery classification model."
+                  />
+
+
+                  <XaiItem
+                    number="02"
+                    title="Error Level Analysis"
+                    value={
+                      `ELA Score ${forensicAnalysis.signals.ela.score.toFixed(4)}`
+                    }
+                    text="ELA provides a forensic signal that can help identify inconsistent compression behaviour."
+                  />
+
+
+                  <XaiItem
+                    number="03"
+                    title="Copy-Move Analysis"
+                    value={
+                      `${forensicAnalysis.signals.copyMove.geometricMatches} geometric matches`
+                    }
+                    text="No significant geometric copy-move matches were detected in the current analysis."
+                  />
+
+
+                  <XaiItem
+                    number="04"
+                    title="Combined Forensics"
+                    value={
+                      `Anomaly ${forensicAnalysis.combinedAnomalyScore.toFixed(4)}`
+                    }
+                    text="The combined forensic score summarizes the available image-level anomaly signals."
+                  />
+
+                </div>
+
+
+                {/* =================================================
+                    BACKEND XAI PLACEHOLDER
+
+                    Future backend can provide:
+
+                    result.xai.heatmapUrl
+                    result.xai.annotatedImageUrl
+                    result.xai.regions
+
+                ================================================= */}
+
+                <div className="xai-backend-placeholder">
+
+                  <BrainCircuit size={19} />
+
+                  <div>
+
+                    <strong>
+                      Advanced visual explanation
+                    </strong>
+
+                    <span>
+                      Heatmaps, suspicious-region overlays,
+                      bounding boxes and model explanations
+                      can be rendered here once returned
+                      by the ML backend.
+                    </span>
+
+                  </div>
+
+                  <small>
+                    BACKEND XAI
+                  </small>
+
+                </div>
+
+              </div>
+
+
+
+              {/* ===============================================
+                  REVIEW RECOMMENDATION
+              =============================================== */}
+
+              {isSuspicious && (
+
+                <div className="review-banner">
+
+                  <div className="review-banner-icon">
+
+                    <AlertTriangle size={22} />
+
+                  </div>
+
+
+                  <div>
+
+                    <span>
+                      RECOMMENDED ACTION
+                    </span>
+
+                    <h3>
+                      Manual Review Recommended
+                    </h3>
+
+                    <p>
+                      The document was not classified as
+                      genuine. Verify the document manually
+                      before accepting it as authentic.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              )}
+
+
+
+              {/* ===============================================
+                  BOTTOM ACTIONS
+              =============================================== */}
+
+              <div className="bottom-actions">
+
+                <div className="completion">
+
+                  <CheckCircle2 size={15} />
+
+                  Analysis completed successfully
+
+                </div>
+
+
+                <div className="bottom-buttons">
+
+                  <Link
+                    to="/detect"
+                    className="secondary-action"
+                  >
+
+                    <RefreshCw size={14} />
+
+                    Analyze Another
+
+                  </Link>
+
+
+                  <Link
+                    to="/history"
+                    className="primary-action"
+                  >
+
+                    <Database size={14} />
+
+                    View History
+
+                  </Link>
+
+                </div>
+
+              </div>
+
+
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  );
+}
+
+
+/* =========================================================
+   REUSABLE COMPONENTS
+========================================================= */
+
+function Detail({ label, value }) {
+
+  return (
+
+    <div className="detail-row">
+
+      <span>
+        {label}
+      </span>
+
+      <strong>
+        {value}
+      </strong>
+
+    </div>
+
+  );
+
+}
+
+
+function SummaryCard({
+  icon,
+  type,
+  label,
+  value,
+  sub,
+}) {
+
+  return (
+
+    <div className="summary-card">
+
+      <div className={`summary-icon ${type}`}>
+        {icon}
+      </div>
+
+      <div>
+
+        <span>
+          {label}
+        </span>
+
+        <strong>
+          {value}
+        </strong>
+
+        <small>
+          {sub}
+        </small>
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+
+function DashboardCard({
+  title,
+  icon,
+  badge,
+  badgeType,
+  children,
+}) {
+
+  return (
+
+    <div className="dashboard-card">
+
+      <div className="dashboard-card-header">
+
+        <div>
+
+          {icon}
+
+          <h3>
+            {title}
+          </h3>
+
+        </div>
+
+
+        {badge && (
+
+          <span
+            className={`card-badge ${
+              badgeType || ""
+            }`}
+          >
+            {badge}
+          </span>
+
+        )}
+
+      </div>
+
+
+      {children}
+
+    </div>
+
+  );
+
+}
+
+
+function ForensicRow({
+  metric,
+  value,
+  detail,
+}) {
+
+  return (
+
+    <div className="forensic-row">
+
+      <strong>
+        {metric}
+      </strong>
+
+      <span>
+        {value}
+      </span>
+
+      <small>
+        {detail}
+      </small>
+
+    </div>
+
+  );
+
+}
+
+
+function Technical({
+  label,
+  value,
+}) {
+
+  return (
+
+    <div className="technical-item">
+
+      <span>
+        {label}
+      </span>
+
+      <strong>
+        {value}
+      </strong>
+
+    </div>
+
+  );
+
+}
+
+
+function XaiItem({
+  number,
+  title,
+  value,
+  text,
+}) {
+
+  return (
+
+    <div className="xai-item">
+
+      <div className="xai-number">
+        {number}
+      </div>
+
+      <div>
+
+        <span>
+          {title}
+        </span>
+
+        <strong>
+          {value}
+        </strong>
+
+        <p>
+          {text}
+        </p>
+
+      </div>
+
+    </div>
+
+  );
+
+}

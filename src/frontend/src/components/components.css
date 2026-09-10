@@ -1,0 +1,741 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  width: 100%;
+  height: 72px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1280px;
+  height: 72px;
+
+  margin: 0 auto;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ---------- Logo ---------- */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  color: #111827;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111827;
+  color: #ffffff;
+
+  border-radius: 11px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-text span {
+  color: #2563eb;
+}
+
+
+/* ---------- Desktop navigation ---------- */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  color: #374151;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.nav-link.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+
+/* ---------- Mobile button ---------- */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #111827;
+
+  cursor: pointer;
+}
+
+
+/* ---------- Mobile navigation ---------- */
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  width: 100%;
+
+  margin-top: 60px;
+
+  background: #111827;
+  color: #ffffff;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 25px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* ---------- Footer brand ---------- */
+
+.footer-brand {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* ---------- Footer description ---------- */
+
+.footer-description {
+  color: #9ca3af;
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+
+/* ---------- Footer links ---------- */
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+
+/* ---------- Copyright ---------- */
+
+.footer-bottom {
+  width: 100%;
+
+  border-top: 1px solid #273244;
+
+  padding: 13px 20px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+========================================================= */
+
+.upload-box {
+  width: 100%;
+
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+
+  padding: 55px 30px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  background: #f8fafc;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.upload-box:hover,
+.upload-box.dragging {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.upload-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.upload-box h3 {
+  margin: 0;
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.upload-box p {
+  margin: 10px 0;
+
+  color: #64748b;
+}
+
+.upload-format {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   DOCUMENT PREVIEW
+========================================================= */
+
+.document-preview {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.preview-header {
+  padding: 15px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.preview-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+}
+
+.remove-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: #64748b;
+
+  cursor: pointer;
+}
+
+.remove-file:hover {
+  color: #ef4444;
+}
+
+.preview-image-container {
+  padding: 25px;
+
+  display: flex;
+  justify-content: center;
+
+  background: #f8fafc;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 500px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+.file-information {
+  padding: 14px 18px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+.file-information span {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   ANALYSIS LOADER
+========================================================= */
+
+.analysis-loader {
+  padding: 50px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+}
+
+.loader-spinner {
+  display: flex;
+  justify-content: center;
+
+  color: #2563eb;
+
+  animation: spin 1.5s linear infinite;
+}
+
+.analysis-loader h2 {
+  margin: 20px 0 8px;
+}
+
+.analysis-loader > p {
+  color: #64748b;
+}
+
+.analysis-steps {
+  max-width: 350px;
+
+  margin: 30px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  text-align: left;
+}
+
+.analysis-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #94a3b8;
+}
+
+.analysis-step.completed {
+  color: #16a34a;
+}
+
+.analysis-step.processing {
+  color: #2563eb;
+}
+
+.step-circle {
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid #cbd5e1;
+
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESULT CARD
+========================================================= */
+
+.result-card {
+  padding: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid;
+}
+
+.result-forged {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.result-authentic {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.result-icon {
+  flex-shrink: 0;
+}
+
+.result-content {
+  flex: 1;
+}
+
+.result-label {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.result-content h2 {
+  margin: 5px 0;
+}
+
+.result-content p {
+  margin: 0;
+
+  opacity: 0.8;
+
+  line-height: 1.5;
+}
+
+.result-score {
+  text-align: center;
+}
+
+.result-score strong {
+  display: block;
+
+  font-size: 32px;
+}
+
+.result-score span {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SCORE CARD
+========================================================= */
+
+.score-card {
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.score-title {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.score-value {
+  display: block;
+
+  margin: 8px 0;
+
+  font-size: 30px;
+}
+
+.score-description {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.score-danger .score-value {
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   XAI EXPLANATION
+========================================================= */
+
+.xai-container {
+  padding: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+}
+
+.xai-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.xai-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.xai-header h2 {
+  margin: 0;
+}
+
+.xai-header p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+}
+
+.xai-explanation {
+  margin-top: 25px;
+
+  padding: 18px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  line-height: 1.6;
+}
+
+.suspicious-regions {
+  margin-top: 25px;
+}
+
+.suspicious-regions h3 {
+  margin-bottom: 12px;
+}
+
+.region-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.region-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 13px;
+
+  border-radius: 8px;
+
+  background: #fff7ed;
+  color: #c2410c;
+
+  font-size: 14px;
+}
+
+.no-regions {
+  color: #64748b;
+}
+
+.xai-heatmap-placeholder {
+  min-height: 250px;
+
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+}
+
+.xai-heatmap-placeholder h3 {
+  margin: 10px 0 5px;
+}
+
+.xai-heatmap-placeholder p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .mobile-nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 12px 24px 18px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .mobile-nav a {
+    padding: 12px;
+
+    color: #374151;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+  }
+
+  .mobile-nav a:hover {
+    background: #f3f4f6;
+  }
+
+  .footer-container {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    gap: 15px;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+
+  .result-card {
+    flex-direction: column;
+
+    text-align: center;
+  }
+}
